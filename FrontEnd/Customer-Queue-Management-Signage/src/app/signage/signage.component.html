@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <mat-grid-list cols="12" rowHeight="80px">
+    <mat-grid-tile [colspan]="4" [rowspan]="7">
+      <table class="table table-striped table-bordered tableheader">
+        <thead>
+          <th class="tablehead" *ngFor="let col of tableHeader">
+            {{ col }}
+          </th>
+        </thead>
+
+        <tbody id="table_scroll" class="tableBody">
+          <tr class="tableRow" *ngFor="let row of tabledata">
+            <td *ngFor="let col of tableHeader">
+              {{ row[col] }}
+            </td>
+          </tr>
+          <tr class="tableRow" *ngFor="let emp of empty">
+            <td *ngFor="let col of tableHeader">
+              {{ emp[col] }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="6.5">
+      <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of campainurl; let i = index">
+          <img
+            style="object-fit: cover;"
+            src="{{ image }}"
+            alt="please load the image"
+          />
+        </ng-template>
+      </ngb-carousel>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="12" rowHeight="80px">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <img class="logo" src="assets/images/banklogo.png"
+    /></mat-grid-tile>
+    <mat-grid-tile [colspan]="6" [rowspan]="1">
+      <marquee
+        ><h1>
+          {{ "Welcome to Trust Merchant Bank" | translate }}
+        </h1>
+      </marquee>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
+      <h3 class="date">
+        {{ date }}
+        <br />
+        {{ time }}
+      </h3>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

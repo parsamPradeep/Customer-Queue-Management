@@ -1,0 +1,82 @@
+.date {
+  color: red;
+  padding-left: 10px;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+.time {
+  color: skyblue;
+  padding-left: 250px;
+  margin-bottom: 50px;
+}
+
+.shape {
+  background-color: white;
+}
+
+.depth {
+  color: white;
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+.container-fluid {
+  background-color: white;
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 10px;
+  width: 30px;
+  height: 45px;
+}
+table thead th {
+  background-color: rgb(197, 90, 17);
+  color: white;
+  font-family: calibri;
+  font-size: 24px;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: rgb(251, 229, 214);
+  font-family: calibri;
+  font-size: 30px;
+  text-align: center;
+}
+table tbody tr:nth-child(even) {
+  background-color: rgb(237, 237, 237);
+  font-family: calibri;
+  font-size: 30px;
+  text-align: center;
+}
+
+.tableheader {
+  width: 450px;
+  table-layout: fixed;
+  margin: auto;
+}
+.tablehead {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  width: 450%;
+}
+
+.tableBody {
+  height: 525px;
+  overflow: auto;
+  overflow-x: hidden;
+  display: block;
+  width: 300%;
+}
+.tableRow {
+  display: table;
+  width: 69%;
+  table-layout: fixed;
+  padding: 5px 5px;
+}
