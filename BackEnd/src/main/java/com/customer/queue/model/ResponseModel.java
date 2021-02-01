@@ -1,6 +1,9 @@
 package com.customer.queue.model;
 
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ResponseModel {
-	@JsonRawValue
+
 	private Object data;
 
 	private String successDetails;
 	private String errorDetails;
 	private ResponseStatus responseStatus; 
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE); 
+	}
 	
 }

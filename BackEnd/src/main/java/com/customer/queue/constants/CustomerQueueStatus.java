@@ -1,5 +1,5 @@
 package com.customer.queue.constants;
 
-public enum TellerQueueStatus {
+public enum CustomerQueueStatus {
 	 PENDING, ALLOCATED, SERVICED, REJECTED, SKIPPED
 }

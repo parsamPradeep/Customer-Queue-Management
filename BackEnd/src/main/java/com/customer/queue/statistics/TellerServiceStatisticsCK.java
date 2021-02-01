@@ -21,5 +21,5 @@ public class TellerServiceStatisticsCK implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date branchDate;
     private Long serviceTypeId;
-    private String branchCodeCbs; 
+    private String branchCode; 
 }

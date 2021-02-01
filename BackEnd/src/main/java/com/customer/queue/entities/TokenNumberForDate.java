@@ -1,14 +1,12 @@
 package com.customer.queue.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +18,8 @@ public class TokenNumberForDate implements Serializable {
     @Id
     private TokenNumberForDateCK tokenNumberForDateCK;
     private Integer latestTokenNumberIssued;
+    @Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE); 
+	}
 }

@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Transient;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +26,10 @@ public class ServiceTypeForCounter implements Serializable{
 	private Long serviceTypeId;
 	@Transient
 	private String description;
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE); 
+	}
 	
 
 }

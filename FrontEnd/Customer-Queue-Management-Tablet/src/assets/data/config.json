@@ -1,0 +1,7 @@
+{
+  "requestNewTokenURL": "http://10.10.9.213:4007/teller-queue/requestNewToken",
+  "serviceTypeURL": "http://10.10.9.213:4007/teller-queue/getAllServiceTypes",
+  "login": "http://10.10.9.213:4444/finflowz-gateway/finflowz-iam/userSignIn",
+  "logout": "http://10.10.9.213:4444/finflowz-gateway/finflowz-iam/userSignout",
+  "defaultServiceTypeId": 3
+}

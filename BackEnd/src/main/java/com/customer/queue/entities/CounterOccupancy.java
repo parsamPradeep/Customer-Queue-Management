@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import java.util.Date;
 
 import lombok.Getter;
@@ -18,9 +21,13 @@ import lombok.Setter;
 public class CounterOccupancy implements Serializable {
 	@Id
 	private Long counterNumber;
-	private Long allocatedTellerId;
+	private Long allocatedId;
 	@Temporal(TemporalType.DATE)
 	private Date applicationDate;
-	private String branchCodeCbs;
+	private String branchCode;
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE); 
+	}
 
 }

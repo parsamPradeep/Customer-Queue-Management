@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 public class BranchServiceStatisticsCK  implements Serializable {
 	  private static final long serialVersionUID = 1L;
-	  	private String branchCodeCbs;
+	  	private String branchCode;
 	  	@Temporal(TemporalType.DATE)
 	    private Date branchDate;
 	    private Long serviceTypeId;

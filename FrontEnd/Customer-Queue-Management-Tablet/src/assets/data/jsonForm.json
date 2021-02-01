@@ -1,0 +1,86 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "phoneNumber": {
+        "title": "PhoneNumber",
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "minLength": 10,
+        "maxLength": 11
+      },
+      "serviceType": {
+        "title": "ServiceType",
+        "type": "number"
+      }
+    },
+
+    "required": ["name", "phoneNumber", "serviceType"]
+  },
+  "data": [
+    "name",
+    "phoneNumber",
+    "serviceType",
+    {
+      "key": "serviceType",
+      "type": "select",
+      "titleMap": [
+        {
+          "value": 1,
+          "name": "Teller-Service"
+        },
+        {
+          "value": 2,
+          "name": "Customer-Service"
+        }
+      ]
+    }
+  ],
+  "layout": [
+    {
+      "type": "flex",
+      "flex-flow": "row",
+      "items": [
+        {
+          "key": "name",
+          "flex": "0 0 80%"
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "flex-flow": "row",
+      "items": [
+        {
+          "key": "phoneNumber",
+          "flex": "0 0 80%"
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "flex-flow": "row",
+      "items": [
+        {
+          "key": "serviceType",
+          "flex": "0 0 80%",
+          "type": "select",
+          "titleMap": [
+            {
+              "value": 1,
+              "name": "Teller-Service"
+            },
+            {
+              "value": 2,
+              "name": "Customer-Service"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

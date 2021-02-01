@@ -1,0 +1,9 @@
+{
+  "jsonSchemaURL": "assets/data/jsonForm.json",
+  "tokenNumber": "tokenNumber",
+  "customerName": "customerName",
+  "finData": "finData",
+  "routeToPrint": "/print-token",
+  "responseStatus": "responseStatus",
+  "finErrorDetails": "finErrorDetails"
+}

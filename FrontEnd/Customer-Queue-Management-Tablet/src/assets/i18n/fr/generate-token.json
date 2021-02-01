@@ -1,0 +1,16 @@
+{
+  "Welcome to Trust Merchant Bank": "Bienvenue chez Trust Merchant Bank",
+  "PhoneNumber": "Numéro de téléphone",
+  "Enter Name": "Entrez le nom",
+  "Not less then 3 characters long.": "Pas moins de 3 caractères.",
+  "Name is required": "Le nom est requis",
+  "You have less than 3 characters": "Vous avez moins de 3 personnages",
+  "Mobile Number": "Numéro de portable",
+  "Phone Number is required": "Le numéro de téléphone est requis",
+  "Invalid format": "Format invalide",
+  "Service Type": "type de service",
+  "Service Type is required": "Le type de service est requis",
+  "Issue Token": "Jeton d'émission",
+  "Account Number": "",
+  "Account Number is required": ""
+}
