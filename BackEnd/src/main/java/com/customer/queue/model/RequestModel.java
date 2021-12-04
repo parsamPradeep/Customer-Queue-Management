@@ -2,8 +2,8 @@ package com.customer.queue.model;
 
 import java.util.Date;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class RequestModel {
 	private Date applicationDate;
-	private Object Data;
+	private Object data;
 	private String branchCode;
 	
 	@Override

@@ -1,11 +1,13 @@
 server:
-  port: 4080
+  port: 4070
 
     
 spring:
+  datasource:    url: jdbc:h2:mem:testdb
   h2:
     console:
       enabled: true
+      path: /h2-console
 
   jpa:
     show-sql: true
@@ -21,4 +23,4 @@ spring:
       initialize-schema: always
     application:
       name: customer-queue-management
-PROPERTY_PATH: E:\Wildfly-dep\Properties\FinFlowz-qms.yml
+PROPERTY_PATH: D:\FinFlowz-qms.yml

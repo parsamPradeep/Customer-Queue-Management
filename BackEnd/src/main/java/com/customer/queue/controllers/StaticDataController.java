@@ -1,7 +1,5 @@
 package com.customer.queue.controllers;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +28,13 @@ public class StaticDataController {
  		public ResponseModel getAllServiceTypes(@RequestBody RequestModel requestModel) throws Exception {
    			logger.info("I am in the controller to get all service types to teller.");
    	        return this.staticDataWrapper.getAllServiceTypes(requestModel);
+   	           			
+	  }
+   
+   		@RequestMapping(value="/getServiceTypesForBranch", method= RequestMethod.POST)
+ 		public ResponseModel getServiceTypesForBranch(@RequestBody RequestModel requestModel) throws Exception {
+   			logger.info("I am in the controller to get all service types to teller.");
+   	        return this.staticDataWrapper.getServiceTypesForBranch(requestModel);
    	           			
 	  }
    		@RequestMapping(value="/removeServiceType", method= RequestMethod.POST)

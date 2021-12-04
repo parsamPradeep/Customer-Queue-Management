@@ -33,13 +33,26 @@ public class StaticDataService {
 		this.serviceTypeForCounterRepo=serviceTypeForCounterRepo;
 
 	}
-
+	
 
 	public List<ServiceType> getAllServiceTypes() throws Exception {
 		logger.debug("Im in service to get all service type");
 		return serviceTypeRepo.findAll(); 
 	}
-
+	public List<ServiceType> getServiceTypesForBranch(ServiceType serviceType) throws Exception {
+		logger.debug("Im in service to get ServiceTypes for branch");
+		try {
+			List<ServiceType> serviceTypeData= serviceTypeRepo.findByBranchCode(serviceType.getBranchCode());
+			if(!serviceTypeData.isEmpty()) {
+				return serviceTypeData;
+			}else {
+				throw new Exception(ErrorCodes.E_NO_SERVICE_TYPE_DATA.toString());
+			}
+		}catch (Exception exception) {
+			logger.error("Got error while persisting!", exception);
+			throw exception;
+		}
+	}
 
 	public List<ServiceType> removeServiceType(ServiceType serviceType) throws Exception {
 		logger.debug("Im in service to remove service type");

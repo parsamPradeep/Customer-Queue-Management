@@ -1,0 +1,24 @@
+server:
+  port: 4080
+
+    
+spring:
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: create
+    batch:
+      initialize-schema: always
+    application:
+      name: customer-queue-management
+PROPERTY_PATH: E:\Wildfly-dep\Properties\FinFlowz-qms.yml

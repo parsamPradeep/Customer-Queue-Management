@@ -27,12 +27,11 @@ export class GenerateTokenComponent implements OnInit {
   customer: Customer = new Customer();
   submitted: boolean;
   tokengenerationform: FormGroup;
-  headerModel: HeaderModel = json;
   date: Date = new Date();
   year: string = this.date.getFullYear().toString();
   month: string = ((this.date.getMonth() + 1) < 10 ? '0' : '') + (this.date.getMonth() + 1);
   day: string = (this.date.getDate() < 10 ? '0' : '') + this.date.getDate();
-  finRequestModel: FinRequest = new FinRequest(null, null);
+  
   jsonFormObject: any;
   serviceType: any;
   spinner: boolean;

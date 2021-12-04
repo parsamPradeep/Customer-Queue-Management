@@ -3,16 +3,20 @@ package com.customer.queue.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.customer.queue.ymlfactory.YamlPropertyLoaderFactory;
+//import com.customer.queue.ymlfactory.YamlPropertyLoaderFactory;
 
-@Configuration
+//@Configuration
 //@EnableWebMvc
-@PropertySource(value = "file:${PROPERTY_PATH}", factory = YamlPropertyLoaderFactory.class)
-public class CQMWebConfig {
+//@PropertySource(value = "file:${PROPERTY_PATH}", factory = YamlPropertyLoaderFactory.class)
+public class CQMWebConfig{
 	Logger log=LoggerFactory.getLogger(CQMWebConfig.class);
 	@Value("${finflowz.datasource.url}")
 	public String dataSourceUrl;
@@ -26,7 +30,6 @@ public class CQMWebConfig {
 	@Value("${finflowz.datasource.driver}")
 	public String dataSourceDriver;
 	
-	
 //	@Bean
 //	@Primary
 //	public DataSource dataSource() {
@@ -37,7 +40,6 @@ public class CQMWebConfig {
 //		dataSource.setPassword(dataSourcePassword);
 //		return dataSource;
 //	}
-
 	
 
 }

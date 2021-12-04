@@ -13,4 +13,5 @@ public interface ServiceTypeRepo extends JpaRepository<ServiceType, Long>{
 	List<ServiceType> deleteByServiceTypeId(Long serviceTypeId);
 	Optional<ServiceType> findByServiceTypeId(Long serviceTypeId);
 	Optional<ServiceType> findByServiceTypeDescription(String serviceTypeDescription);
+	List<ServiceType> findByBranchCode(String branchCode);
 }

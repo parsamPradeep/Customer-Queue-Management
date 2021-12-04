@@ -12,7 +12,6 @@ import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatProgressSpinnerModule } from '@angular/material';
-import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
 import { NotifierModule } from 'angular-notifier';
 export const createTranslateLoader = (http: HttpClient) => {

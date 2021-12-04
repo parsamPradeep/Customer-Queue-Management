@@ -157,6 +157,17 @@ public class CustomerQueueServiceUtility {
 		}
 		return serviceType;
 	}
+	
+	public ServiceType validateForGetServiceTypeForBranch(RequestModel RequestModel) throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		ServiceType serviceType = mapper.convertValue(RequestModel.getData(), ServiceType.class);
+		if (serviceType.getBranchCode() == null) {
+			log.error("Branch code cbs can't  be blank");
+			throw new Exception(ErrorCodes.E_BRANCH_CODECBS_MANDATORY.toString()
+					);
+		}
+		return serviceType;
+	}
 
 	public ServiceType validateForAddServiceType(RequestModel RequestModel) throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
@@ -334,7 +345,7 @@ public CounterOccupancy validateForOccupancy(RequestModel RequestModel) throws E
 	return counterOccupancy;
 }
 
-	public ResponseModel generateSuccessResponse(RequestModel RequestModel, ServiceQueue serviceQueue) {
+	public ResponseModel generateSuccessResponse(Object obj, ServiceQueue serviceQueue) {
 		ResponseModel responseModel=new ResponseModel();
 		String successCodes = gettingSuccessCode(serviceQueue);		
 		responseModel.setData(serviceQueue);
@@ -342,9 +353,9 @@ public CounterOccupancy validateForOccupancy(RequestModel RequestModel) throws E
 		responseModel.setResponseStatus(ResponseStatus.SUCCESS);
 		return responseModel;
 	}
-	public ResponseModel generateSuccessResponse(RequestModel RequestModel,String successCode) {
+	public ResponseModel generateSuccessResponse(Object obj,String successCode) {
 		ResponseModel responseModel=new ResponseModel();	
-		responseModel.setData(RequestModel);
+		responseModel.setData(obj);
 		responseModel.setSuccessDetails(successCode);
 		responseModel.setResponseStatus(ResponseStatus.SUCCESS);
 		return responseModel;

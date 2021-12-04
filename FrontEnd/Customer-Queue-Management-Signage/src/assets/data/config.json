@@ -3,10 +3,10 @@
   "queueDepthTopic": "/topic/queuedepth",
   "statisticsTopic": "/topic/statistics",
   "announcementTopic": "/topic/announcement",
-  "baseURL": "http://10.10.9.213:4007/teller-queue/queue",
-  "serviceTypeURL": "http://10.10.9.213:4007/teller-queue/getAllServiceTypes",
+  "baseURL": "http://localhost:4070/queue",
+  "serviceTypeURL": "http://localhost:4070/getAllServiceTypes",
   "login": "http://10.10.9.213:4444/finflowz-gateway/finflowz-iam/userSignIn",
   "logout": "http://10.10.9.213:4444/finflowz-gateway/finflowz-iam/userSignout",
-  "campainImage": "http://10.10.9.213:4007/teller-queue/getCampainImageURL",
+  "campainImage": "http://localhost:4070/getCampainImageURL",
   "navSpeed": "5000"
 }

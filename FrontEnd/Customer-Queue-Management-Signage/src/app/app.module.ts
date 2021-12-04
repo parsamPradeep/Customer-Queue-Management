@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SignageComponent } from './signage/signage.component';
-import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NotifierModule } from 'angular-notifier';
 import { DatePipe } from '@angular/common';
@@ -22,8 +21,7 @@ export const createTranslateLoader = (http: HttpClient) => {
 @NgModule({
   declarations: [
     AppComponent,
-    SignageComponent,
-    LoginComponent
+    SignageComponent
   ],
   imports: [
     NgbModule,
@@ -34,8 +32,6 @@ export const createTranslateLoader = (http: HttpClient) => {
     FormsModule, ReactiveFormsModule,
     MatCarouselModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
       { path: 'signage', component: SignageComponent }
     ]),
     TranslateModule.forRoot({
