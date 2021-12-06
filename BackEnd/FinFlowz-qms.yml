@@ -1,0 +1,10 @@
+finflowz:
+  datasource:
+        url: jdbc:h2:mem:testdb;IFEXISTS=FALSE;
+        username: sa
+        password:  
+        driver: org.h2.Driver 
+  campainmediaurl: http://localhost:8101/
+  campainmediafolder: C:\Img\
+  gloabal:
+        config:0.0.0.0/0
