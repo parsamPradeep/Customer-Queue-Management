@@ -8,9 +8,37 @@ import { Wrapper } from "./SlidingWindow.styles";
 
 SwiperCore.use([Autoplay]);
 
-const SliderWindow = (props) => {
-  let depth1 = null,
-    depth2 = null;
+const SliderWindow = ({ serviceType, queueData, statistics }) => {
+  const serviceTypesChunks = serviceType
+    .map((st) => ({
+      ...st,
+      depth: queueData[st.serviceTypeDescription] || 0,
+      depthName: st.serviceTypeDescription || "none",
+      totalNumberServiced:
+        statistics[`${st.serviceTypeDescription}-TotalNumberServiced`] || 0,
+      averageServiceCompletionTime:
+        statistics[
+          `${st.serviceTypeDescription}-AverageServiceCompletionTime`
+        ] || 0,
+    }))
+    .reduce((acc, cur, i) => {
+      const chunkIndex = Math.floor(i / 2);
+      acc[chunkIndex] = !acc[chunkIndex] ? [cur] : [...acc[chunkIndex], cur];
+      return acc;
+    }, []);
+
+  const dummyData = {
+    averageServiceCompletionTime: 0,
+    depth: 0,
+    depthName: "none",
+    serviceTypeDescription: "none",
+    serviceTypeId: 0,
+    totalNumberServiced: 0,
+  };
+  console.log(serviceTypesChunks);
+  if (serviceTypesChunks.length !== 0)
+    if (serviceTypesChunks[serviceTypesChunks.length - 1].length % 2 !== 0)
+      serviceTypesChunks[serviceTypesChunks.length - 1].push(dummyData);
 
   return (
     <Wrapper>
@@ -24,58 +52,35 @@ const SliderWindow = (props) => {
         }}
         className="swiper"
       >
-        {Object.keys(props.queueData).length == 0 ? (
+        {Object.keys(queueData).length == 0 ? (
           <SwiperSlide>
-            <QueueDepth qDepth1={0} qDepth2={0} />
+            <QueueDepth
+              qDepth1={dummyData.depth}
+              qDepthName1={dummyData.depthName}
+              qDepth2={dummyData.depth}
+              qDepthName2={dummyData.depthName}
+              qstats1={dummyData.totalNumberServiced}
+              qstats2={dummyData.totalNumberServiced}
+              qstats3={dummyData.averageServiceCompletionTime}
+              qstats4={dummyData.averageServiceCompletionTime}
+            />
           </SwiperSlide>
         ) : (
-          props.serviceType.map((m, i) => {
-            if (depth1 && depth2) depth1 = depth2 = null;
-            if (!depth1) depth1 = m.serviceTypeDescription;
-            else depth2 = m.serviceTypeDescription;
-            if (depth2 && depth1 == null && i == props.serviceType.length - 1)
-              depth1 = 0;
-            if (depth1 && depth2 == null && i == props.serviceType.length - 1)
-              depth2 = 0;
-
-            if (depth1 != null && depth2 != null) {
-              return (
-                <SwiperSlide key={props.serviceType["serviceTypeId"]}>
-                  <QueueDepth
-                    key={props.serviceType["serviceTypeId"]}
-                    qDepth1={depth1 == 0 ? 0 : props.queueData[depth1]}
-                    qDepthName1={depth1 == 0 ? "none" : depth1}
-                    qDepth2={depth2 == 0 ? 0 : props.queueData[depth2]}
-                    qDepthName2={depth2 == 0 ? "none" : depth2}
-                    qstats1={
-                      props.statistics[depth1 + "-TotalNumberServiced"]
-                        ? props.statistics[depth1 + "-TotalNumberServiced"]
-                        : 0
-                    }
-                    qstats2={
-                      props.statistics[depth2 + "-TotalNumberServiced"]
-                        ? props.statistics[depth2 + "-TotalNumberServiced"]
-                        : 0
-                    }
-                    qstats3={
-                      props.statistics[depth1 + "-AverageServiceCompletionTime"]
-                        ? props.statistics[
-                            depth1 + "-AverageServiceCompletionTime"
-                          ]
-                        : 0
-                    }
-                    qstats4={
-                      props.statistics[depth2 + "-AverageServiceCompletionTime"]
-                        ? props.statistics[
-                            depth2 + "-AverageServiceCompletionTime"
-                          ]
-                        : 0
-                    }
-                  />
-                </SwiperSlide>
-              );
-            }
-          })
+          serviceTypesChunks.map(([s1, s2], i) => (
+            <SwiperSlide>
+              <QueueDepth
+                key={i}
+                qDepth1={s1.depth}
+                qDepthName1={s1.depthName}
+                qDepth2={s2.depth}
+                qDepthName2={s2.depthName}
+                qstats1={s1.totalNumberServiced}
+                qstats2={s2.totalNumberServiced}
+                qstats3={s1.averageServiceCompletionTime}
+                qstats4={s2.averageServiceCompletionTime}
+              />
+            </SwiperSlide>
+          ))
         )}
       </Swiper>
     </Wrapper>
